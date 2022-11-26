@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "translate_this_bot"
+version = "0.1.0"
+description = ""
+authors = ["Roman Poliakov <roman61394@gmail.com>"]
+packages = [{include='telegram_bot'}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyTelegramBotAPI = "^4.5.1"
+python-dotenv = "^0.21.0"
+emoji = "^2.2.0"
+reverso-context-api = "^0.5"
+
+[tool.poetry.scripts]
+bot = "telegram_bot.scripts.telebot:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
