@@ -1,15 +1,14 @@
 from emoji import emojize
 
-START = emojize(':bellhop_bell: Привет! :bellhop_bell:\n\n'
-                '"Translate This!" – бот для перевода слов '
-                'и простых словосочетаний.\n\n'
+START = emojize(':woman_dancing: Можно начинать! :man_dancing: \n\n'
                 'Как пользоваться ботом: /help')
 
 HELP = emojize(':United_Kingdom: :cat: :Russia:\n'
                'По умолчанию бот переводит с английского на русский. \n\n'
                'Чтобы выбрать другую языковую пару, отправьте мне команду \n'
                '/picklanguages. \n\nЗатем напишите мне слово или '
-               'простое словосочетание, а я пришлю вам его перевод '
+               'простое словосочетание. Например, "Велосипед" '
+               'или "Нет войне!". \n\nА я пришлю вам его перевод '
                'и примеры использования! :slightly_smiling_face:')
 
 PICK_SOURCE = 'С какого языка переводим?'
@@ -41,3 +40,5 @@ LANGUAGE_EMOJIS = {
     'pt': emojize(':Portugal:'),
     'tr': emojize(':Turkey:')
 }
+
+FEEDBACK_URL = 'https://t.me/FastTranslationFeedbackBot'

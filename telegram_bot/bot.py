@@ -23,7 +23,7 @@ def run_bot(bot):
         keyboard = telebot.types.InlineKeyboardMarkup()
         keyboard.add(
             telebot.types.InlineKeyboardButton(
-                'Написать разработчику', url='t.me/alropo'
+                'Обратная связь', url=messages.FEEDBACK_URL
             )
         )
         bot.send_message(m.chat.id, messages.HELP, reply_markup=keyboard)
