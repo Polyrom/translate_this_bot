@@ -9,7 +9,8 @@ Powered by [Reverso Context](https://context.reverso.net/)
 The bot lets you set a language pair and translate words and basic phrases.
 
 **Supported translation languages:**
-+ :United_Kingdom: English
+
++ English
 + German
 + French
 + Italian
