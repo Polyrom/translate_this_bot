@@ -19,7 +19,9 @@ def make_usage_examples_list(iterator, source, target):
     emoji_examples_list = []
     for item in iter_list_3:
         original, translation = item
-        emoji_item = emoji.emojize(f'{LANGUAGE_EMOJIS.get(source)}  {original}\n'
-                                   f'{LANGUAGE_EMOJIS.get(target)}  {translation}')
+        emoji_item = emoji.emojize(
+            f'{LANGUAGE_EMOJIS.get(source)}  {original}\n'
+            f'{LANGUAGE_EMOJIS.get(target)}  {translation}'
+        )
         emoji_examples_list.append(emoji_item)
     return '\n\n'.join(emoji_examples_list)

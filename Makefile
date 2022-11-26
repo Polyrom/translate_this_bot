@@ -12,3 +12,6 @@ update:
 
 start:
 	poetry run bot
+
+lint:
+	poetry run flake8 telegram_bot
