@@ -1,6 +1,6 @@
 import itertools
 import emoji
-from utils.messages import LANGUAGE_EMOJIS
+from telegram_bot.utils.messages import LANGUAGE_EMOJIS
 
 
 def make_translations_list(iterator):
