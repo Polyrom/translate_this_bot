@@ -6,7 +6,7 @@ authors = ["Roman Poliakov <roman61394@gmail.com>"]
 packages = [{include='telegram_bot'}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.8.1"
 pyTelegramBotAPI = "^4.5.1"
 python-dotenv = "^0.21.0"
 emoji = "^2.2.0"
