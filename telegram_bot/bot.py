@@ -97,8 +97,8 @@ def run_bot(bot):
         lang_pair['target'] = target
         bot.send_message(
             callback.message.chat.id,
-            f'Принято! Переводим на {messages.LANGUAGE_EMOJIS[target]}. '
-            f'Теперь я готов! Присылайте мне слово или словосочетание.'
+            f'Принято! Переводим на {messages.LANGUAGE_EMOJIS[target]}.\n\n'
+            f'Я готов! Какое слово или простую фразу вы хотите перевести?'
         )
 
     @bot.message_handler(content_types=['text'])
