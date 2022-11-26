@@ -1,8 +1,8 @@
 import telebot.types
 from reverso_context_api import Client
-from utils import messages
-from utils.translations import (make_translations_list,
-                                make_usage_examples_list)
+from telegram_bot.utils import messages
+from telegram_bot.utils.translations import (make_translations_list,
+                                             make_usage_examples_list)
 
 
 def run_bot(bot):

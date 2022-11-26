@@ -10,6 +10,10 @@ load_dotenv()
 
 def main():
     bot = telebot.TeleBot(str(os.getenv('BOT_TOKEN')), parse_mode='MARKDOWN')
+    bot.set_my_commands([
+        telebot.types.BotCommand("/help", "Как пользоваться ботом?"),
+        telebot.types.BotCommand("/picklanguages", "Выбрать языковую пару")
+    ])
     run_bot(bot=bot)
     bot.infinity_polling()
 
