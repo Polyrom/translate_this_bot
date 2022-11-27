@@ -19,6 +19,13 @@ SOURCE_CHOSEN = 'Супер! Переводим с '
 
 TARGET_CHOSEN = 'Принято! Переводим на '
 
+SAME_LANGUAGES = emojize(
+    'Язык оригинала и перевода совпадают! '
+    'Я не могу так работать...	:confused_face: \n\n'
+    'Вернул базовые настройки: перевожу с английского на русский.\n\n'
+    ':left_arrow_curving_right: Выбор другой языковой пары:\n/picklanguages'
+)
+
 READY_TO_TRANSLATE = emojize(
     'Я готов! :slightly_smiling_face:\n'
     'Какое слово или простую фразу вы хотите перевести?'

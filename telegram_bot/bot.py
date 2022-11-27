@@ -65,7 +65,20 @@ def run_bot(bot):
         bot.answer_callback_query(callback.id)
         bot.delete_message(callback.message.chat.id, callback.message.id)
         target = callback.data[7:]
+        # check if valid language pair is given
+        if lang_pair['source'] == target:
+            bot.send_message(
+                callback.message.chat.id,
+                messages.SAME_LANGUAGES
+            )
+            lang_pair.update({
+                'source': 'en',
+                'target': 'ru'
+            })
+            return
+
         lang_pair['target'] = target
+
         bot.send_message(
             callback.message.chat.id,
             messages.make_lang_chosen_msg(
