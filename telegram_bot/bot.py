@@ -1,12 +1,12 @@
 import telebot.types
 from reverso_context_api import Client
-from telegram_bot.utils import messages
+from telegram_bot.utils import messages, layout
 from telegram_bot.utils.translations import (make_translations_list,
                                              make_usage_examples_list)
 
 
 def run_bot(bot):
-
+    # set default language pair
     lang_pair = {
         'source': 'en',
         'target': 'ru'
@@ -30,25 +30,8 @@ def run_bot(bot):
 
     @bot.message_handler(commands=['picklanguages'])
     def pick_languages_command(m):
-        source_keyboard = telebot.types.InlineKeyboardMarkup(row_width=2)
-        bt_en = telebot.types.InlineKeyboardButton(messages.LANGUAGES['en'],
-                                                   callback_data='source-en')
-        bt_ru = telebot.types.InlineKeyboardButton(messages.LANGUAGES['ru'],
-                                                   callback_data='source-ru')
-        bt_de = telebot.types.InlineKeyboardButton(messages.LANGUAGES['de'],
-                                                   callback_data='source-de')
-        bt_es = telebot.types.InlineKeyboardButton(messages.LANGUAGES['es'],
-                                                   callback_data='source-es')
-        bt_fr = telebot.types.InlineKeyboardButton(messages.LANGUAGES['fr'],
-                                                   callback_data='source-fr')
-        bt_it = telebot.types.InlineKeyboardButton(messages.LANGUAGES['it'],
-                                                   callback_data='source-it')
-        bt_pt = telebot.types.InlineKeyboardButton(messages.LANGUAGES['pt'],
-                                                   callback_data='source-pt')
-        bt_tr = telebot.types.InlineKeyboardButton(messages.LANGUAGES['tr'],
-                                                   callback_data='source-tr')
-        source_keyboard.add(bt_en, bt_ru, bt_de, bt_es,
-                            bt_fr, bt_it, bt_pt, bt_tr)
+        """ Handles /picklanguages command """
+        source_keyboard = layout.make_inline_langs_keyboard('source')
         bot.send_message(m.chat.id, messages.PICK_SOURCE,
                          reply_markup=source_keyboard)
 
@@ -56,32 +39,15 @@ def run_bot(bot):
         func=lambda callback: callback.data.startswith('source')
     )
     def get_source_language_set_up_target(callback):
+        """ Gets source language and offers to pick target language """
         bot.answer_callback_query(callback.id)
         source = callback.data[7:]
         lang_pair['source'] = source
 
-        target_keyboard = telebot.types.InlineKeyboardMarkup(row_width=2)
-        bt_en = telebot.types.InlineKeyboardButton(messages.LANGUAGES['en'],
-                                                   callback_data='target-en')
-        bt_ru = telebot.types.InlineKeyboardButton(messages.LANGUAGES['ru'],
-                                                   callback_data='target-ru')
-        bt_de = telebot.types.InlineKeyboardButton(messages.LANGUAGES['de'],
-                                                   callback_data='target-de')
-        bt_es = telebot.types.InlineKeyboardButton(messages.LANGUAGES['es'],
-                                                   callback_data='target-es')
-        bt_fr = telebot.types.InlineKeyboardButton(messages.LANGUAGES['fr'],
-                                                   callback_data='target-fr')
-        bt_it = telebot.types.InlineKeyboardButton(messages.LANGUAGES['it'],
-                                                   callback_data='target-it')
-        bt_pt = telebot.types.InlineKeyboardButton(messages.LANGUAGES['pt'],
-                                                   callback_data='target-pt')
-        bt_tr = telebot.types.InlineKeyboardButton(messages.LANGUAGES['tr'],
-                                                   callback_data='target-tr')
-        target_keyboard.add(bt_en, bt_ru, bt_de, bt_es,
-                            bt_fr, bt_it, bt_pt, bt_tr)
+        target_keyboard = layout.make_inline_langs_keyboard('target')
         bot.send_message(
             callback.message.chat.id,
-            f'Супер! Переводим с {messages.LANGUAGE_EMOJIS[source]}.'
+            f'Супер! Переводим с {messages.LANGUAGE_EMOJIS[source]}'
         )
         bot.send_message(
             callback.message.chat.id,
@@ -92,12 +58,13 @@ def run_bot(bot):
         func=lambda callback: callback.data.startswith('target')
     )
     def get_target_language(callback):
+        """ Gets target language and finalizes language pair """
         bot.answer_callback_query(callback.id)
         target = callback.data[7:]
         lang_pair['target'] = target
         bot.send_message(
             callback.message.chat.id,
-            f'Принято! Переводим на {messages.LANGUAGE_EMOJIS[target]}.\n\n'
+            f'Принято! Переводим на {messages.LANGUAGE_EMOJIS[target]}\n\n'
             f'Я готов! Какое слово или простую фразу вы хотите перевести?'
         )
 
