@@ -19,8 +19,10 @@ SOURCE_CHOSEN = 'Супер! Переводим с '
 
 TARGET_CHOSEN = 'Принято! Переводим на '
 
-READY_TO_TRANSLATE = emojize('Я готов! :slightly_smiling_face:\n'
-                             'Какое слово или простую фразу вы хотите перевести?')
+READY_TO_TRANSLATE = emojize(
+    'Я готов! :slightly_smiling_face:\n'
+    'Какое слово или простую фразу вы хотите перевести?'
+)
 
 TRANSLATION_PROMPT = emojize(':telescope: Варианты перевода слова ')
 

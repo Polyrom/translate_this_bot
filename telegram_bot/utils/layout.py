@@ -11,6 +11,7 @@ def make_inline_langs_keyboard(lang_type):
     keyboard = types.InlineKeyboardMarkup()
     for lang_code in LANG_CODES:
         keyboard.add(types.InlineKeyboardButton(
-            messages.LANGUAGES[lang_code], callback_data=f'{lang_type}-{lang_code}'
+            messages.LANGUAGES[lang_code],
+            callback_data=f'{lang_type}-{lang_code}'
         ))
     return keyboard
