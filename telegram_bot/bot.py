@@ -41,14 +41,15 @@ def run_bot(bot):
     def get_source_language_set_up_target(callback):
         """ Gets source language and offers to pick target language """
         bot.answer_callback_query(callback.id)
+        bot.delete_message(callback.message.chat.id, callback.message.id)
         source = callback.data[7:]
         lang_pair['source'] = source
-
-        target_keyboard = layout.make_inline_langs_keyboard('target')
         bot.send_message(
             callback.message.chat.id,
             f'Супер! Переводим с {messages.LANGUAGE_EMOJIS[source]}'
         )
+
+        target_keyboard = layout.make_inline_langs_keyboard('target')
         bot.send_message(
             callback.message.chat.id,
             messages.PICK_TARGET, reply_markup=target_keyboard
@@ -60,12 +61,16 @@ def run_bot(bot):
     def get_target_language(callback):
         """ Gets target language and finalizes language pair """
         bot.answer_callback_query(callback.id)
+        bot.delete_message(callback.message.chat.id, callback.message.id)
         target = callback.data[7:]
         lang_pair['target'] = target
         bot.send_message(
             callback.message.chat.id,
-            f'Принято! Переводим на {messages.LANGUAGE_EMOJIS[target]}\n\n'
-            f'Я готов! Какое слово или простую фразу вы хотите перевести?'
+            f'Принято! Переводим на {messages.LANGUAGE_EMOJIS[target]}'
+        )
+        bot.send_message(
+            callback.message.chat.id,
+            'Я готов! Какое слово или простую фразу вы хотите перевести?'
         )
 
     @bot.message_handler(content_types=['text'])
