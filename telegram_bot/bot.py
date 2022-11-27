@@ -100,6 +100,9 @@ def run_bot(bot):
         client = Client(source_lang, target_lang)
         trans_iter = client.get_translations(m.text)
         usage_examples_iter = client.get_translation_samples(m.text)
+        # check if translation is found
+        if not next(trans_iter, None) or not next(usage_examples_iter, None):
+            bot.send_message(m.chat.id, messages.TRANS_NOT_FOUND)
         # refactor generators into readable translations
         translations = make_translations_list(trans_iter)
         examples = make_usage_examples_list(usage_examples_iter,

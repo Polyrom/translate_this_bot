@@ -19,6 +19,11 @@ SOURCE_CHOSEN = 'Супер! Переводим с '
 
 TARGET_CHOSEN = 'Принято! Переводим на '
 
+TRANS_NOT_FOUND = emojize(
+    ':confused_face: Не смог найти перевод... \n\n'
+    'Пожалуйста, убедитесь что слово написано верно.'
+)
+
 SAME_LANGUAGES = emojize(
     'Язык оригинала и перевода совпадают! '
     'Я не могу так работать...	:confused_face: \n\n'
