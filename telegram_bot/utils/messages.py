@@ -4,16 +4,23 @@ START = emojize(':woman_dancing: Можно начинать! :man_dancing: \n\n
                 'Как пользоваться ботом: /help')
 
 HELP = emojize(':United_Kingdom: :cat: :Russia:\n'
-               'По умолчанию бот переводит с английского на русский. \n\n'
-               'Чтобы выбрать другую языковую пару, отправьте мне команду \n'
-               '/picklanguages. \n\nЗатем напишите мне слово или '
+               'По умолчанию бот переводит с английского на русский.\n\n'
+               'Чтобы выбрать другую языковую пару, отправьте мне команду\n'
+               '/picklanguages.\n\nЗатем напишите мне слово или '
                'простое словосочетание. Например, "Велосипед" '
-               'или "Нет войне!" \n\nА я пришлю вам его перевод '
+               'или "Нет войне!"\n\nА я пришлю вам его перевод '
                'и примеры использования! :slightly_smiling_face:')
 
 PICK_SOURCE = 'С какого языка переводим?'
 
 PICK_TARGET = 'На какой язык переводим?'
+
+SOURCE_CHOSEN = 'Супер! Переводим с '
+
+TARGET_CHOSEN = 'Принято! Переводим на '
+
+READY_TO_TRANSLATE = emojize('Я готов! :slightly_smiling_face:\n'
+                             'Какое слово или простую фразу вы хотите перевести?')
 
 TRANSLATION_PROMPT = emojize(':telescope: Варианты перевода слова ')
 
@@ -42,3 +49,8 @@ LANGUAGE_EMOJIS = {
 }
 
 FEEDBACK_URL = 'https://t.me/FastTranslationFeedbackBot'
+
+
+def make_lang_chosen_msg(prompt, lang):
+    """ Generates message about successful language choice """
+    return prompt + LANGUAGE_EMOJIS[lang]

@@ -46,7 +46,9 @@ def run_bot(bot):
         lang_pair['source'] = source
         bot.send_message(
             callback.message.chat.id,
-            f'Супер! Переводим с {messages.LANGUAGE_EMOJIS[source]}'
+            messages.make_lang_chosen_msg(
+                messages.SOURCE_CHOSEN, source
+            )
         )
 
         target_keyboard = layout.make_inline_langs_keyboard('target')
@@ -66,11 +68,13 @@ def run_bot(bot):
         lang_pair['target'] = target
         bot.send_message(
             callback.message.chat.id,
-            f'Принято! Переводим на {messages.LANGUAGE_EMOJIS[target]}'
+            messages.make_lang_chosen_msg(
+                messages.TARGET_CHOSEN, target
+            )
         )
         bot.send_message(
             callback.message.chat.id,
-            'Я готов! Какое слово или простую фразу вы хотите перевести?'
+            messages.READY_TO_TRANSLATE
         )
 
     @bot.message_handler(content_types=['text'])
