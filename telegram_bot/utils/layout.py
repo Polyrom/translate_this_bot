@@ -3,6 +3,7 @@ from telegram_bot.utils import messages
 
 
 def make_inline_langs_keyboard(lang_type):
+    """ Creates inline keyboard for language choice"""
     LANG_CODES = [
         'en', 'ru', 'de', 'fr',
         'it', 'es', 'pt', 'tr'
