@@ -33,7 +33,7 @@ SAME_LANGUAGES = emojize(
 
 READY_TO_TRANSLATE = emojize(
     'Я готов! :slightly_smiling_face:\n'
-    'Какое слово или простую фразу вы хотите перевести?'
+    'Какое слово или фразу вы хотите перевести?'
 )
 
 TRANSLATION_PROMPT = emojize(':telescope: Варианты перевода слова ')
@@ -63,6 +63,11 @@ LANGUAGE_EMOJIS = {
 }
 
 FEEDBACK_URL = 'https://t.me/FastTranslationFeedbackBot'
+
+
+def make_current_langs_msg(source, target):
+    return f'Сейчас переводим с {LANGUAGE_EMOJIS[source]} ' \
+           f'на {LANGUAGE_EMOJIS[target]}'
 
 
 def make_lang_chosen_msg(prompt, lang):

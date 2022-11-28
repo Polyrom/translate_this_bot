@@ -28,7 +28,16 @@ def run_bot(bot):
         )
         bot.send_message(m.chat.id, messages.HELP, reply_markup=keyboard)
 
-    @bot.message_handler(commands=['picklanguages'])
+    @bot.message_handler(commands=['current'])
+    def see_languages_command(m):
+        """ Handles /current_languages command """
+        bot.send_message(
+            m.chat.id,
+            messages.make_current_langs_msg(lang_pair.get('source'),
+                                            lang_pair.get('target'))
+        )
+
+    @bot.message_handler(commands=['pick'])
     def pick_languages_command(m):
         """ Handles /picklanguages command """
         source_keyboard = layout.make_inline_langs_keyboard('source')
