@@ -13,7 +13,7 @@ def main():
     bot.set_my_commands([
         telebot.types.BotCommand("/help", "Как пользоваться ботом?"),
         telebot.types.BotCommand("/pick", "Выбрать языковую пару"),
-        telebot.types.BotCommand("/current", "Какая языковая пара используется?"),
+        telebot.types.BotCommand("/current", "Активная языковая пара"),
     ])
     run_bot(bot=bot)
     bot.infinity_polling()
