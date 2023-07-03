@@ -28,7 +28,7 @@ The bot lets you set a language pair and translate words and basic phrases.
 + Russian
 
 ## Go ahead and check out the bot:  
-### [Translate This!](https://t.me/FastTranslationBot) (currently down due to changes in Railway pricigng policy)
+### [Translate This!](https://t.me/FastTranslationBot) (currently down due to changes in Railway pricing policy)
 <br>
 
 **Feel free to use the feedback button embedded in /help command**
