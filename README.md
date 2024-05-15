@@ -1,5 +1,4 @@
 [![flake8](https://github.com/Polyrom/translate_this_bot/actions/workflows/flake8.yml/badge.svg)](https://github.com/Polyrom/translate_this_bot/actions/workflows/flake8.yml)
-### 🚠 Work in progress
 ## Translate This!
 Your go-to Telegram translation bot  
 
